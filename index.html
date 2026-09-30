@@ -3,102 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | ผลงานของฉัน</title>
+    <title>Home | Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Page Curtain -->
+    <div class="curtain" id="curtain"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settingsPanel">
+        <button class="settings-toggle" id="settingsToggle" aria-label="Settings">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+        </button>
+        <div class="settings-content">
+            <h4>Motion Settings</h4>
+            <label class="setting-item">
+                <span>Page Curtain</span>
+                <input type="checkbox" id="toggleCurtain" checked>
+            </label>
+            <label class="setting-item">
+                <span>Smooth Scroll</span>
+                <input type="checkbox" id="toggleSmooth" checked>
+            </label>
+            <label class="setting-item">
+                <span>Text Reveals</span>
+                <input type="checkbox" id="toggleReveals" checked>
+            </label>
+            <label class="setting-item">
+                <span>Custom Cursor</span>
+                <input type="checkbox" id="toggleCursor" checked>
+            </label>
+            <label class="setting-item">
+                <span>Magnetic Buttons</span>
+                <input type="checkbox" id="toggleMagnetic" checked>
+            </label>
+        </div>
+    </div>
+
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
-            <a href="#" class="logo">PORTFOLIO</a>
+            <a href="index.html" class="logo magnetic">PORTFOLIO</a>
             <ul class="nav-links">
-                <li><a href="#home">หน้าแรก</a></li>
-                <li><a href="#about">เกี่ยวกับ</a></li>
-                <li><a href="#works">ผลงาน</a></li>
-                <li><a href="#contact">ติดต่อ</a></li>
+                <li><a href="index.html" class="magnetic active">Home</a></li>
+                <li><a href="work.html" class="magnetic">Work</a></li>
+                <li><a href="journal.html" class="magnetic">Journal</a></li>
+                <li><a href="contact.html" class="magnetic">Contact</a></li>
             </ul>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- Hero -->
+    <section class="hero">
         <div class="container">
-            <h1>สวัสดี ฉันคือ <span class="highlight">ชื่อของคุณ</span></h1>
-            <p class="subtitle">นักพัฒนาเว็บไซต์ | นักออกแบบ | คนรักการสร้างสรรค์</p>
-            <a href="#works" class="btn btn-primary">ดูผลงาน</a>
-            <a href="#contact" class="btn btn-outline">ติดต่อฉัน</a>
+            <p class="hero-label reveal">Portfolio 2026</p>
+            <h1 class="hero-title">
+                <span class="line reveal">Crafting digital</span>
+                <span class="line reveal">experiences that</span>
+                <span class="line reveal"><em>matter.</em></span>
+            </h1>
+            <p class="hero-sub reveal">Designer & Developer focused on building thoughtful, high-quality digital products.</p>
+            <div class="hero-cta reveal">
+                <a href="work.html" class="btn btn-primary magnetic">View Work</a>
+                <a href="contact.html" class="btn btn-ghost magnetic">Get in Touch</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Featured Work -->
+    <section class="section featured-work">
         <div class="container">
-            <h2 class="section-title">เกี่ยวกับฉัน</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="placeholder-image">รูปโปรไฟล์</div>
+            <div class="section-header">
+                <h2 class="reveal">Selected Work</h2>
+                <a href="work.html" class="link-arrow magnetic">View all <span>&rarr;</span></a>
+            </div>
+            <div class="work-grid" id="featuredGrid"></div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section services">
+        <div class="container">
+            <h2 class="reveal">What I Do</h2>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">&#9998;</div>
+                    <h3>Design</h3>
+                    <p>UI/UX design that balances aesthetics with usability. From wireframes to polished interfaces.</p>
                 </div>
-                <div class="about-text">
-                    <p>ฉันเป็นนักพัฒนาที่หลงใหลในการสร้างเว็บไซต์ที่สวยงามและใช้งานได้จริง มีประสบการณ์ด้านการออกแบบและพัฒนาเว็บแอปพลิเคชัน</p>
-                    <p>เชื่อว่าเทคโนโลยีที่ดีต้องออกแบบมาเพื่อผู้ใช้ ทุกโปรเจกต์ที่ทำต้องมีเป้าหมายชัดเจน</p>
+                <div class="service-card reveal">
+                    <div class="service-icon">&lt;/&gt;</div>
+                    <h3>Development</h3>
+                    <p>Clean, performant code. Modern frameworks and best practices for scalable products.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">&#9654;</div>
+                    <h3>Motion</h3>
+                    <p>Thoughtful animations that enhance the experience and guide user attention.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Works Section -->
-    <section id="works" class="works">
+    <!-- CTA -->
+    <section class="section cta-section">
         <div class="container">
-            <h2 class="section-title">ผลงาน</h2>
-            <div class="works-grid">
-                <div class="work-card">
-                    <div class="work-image placeholder">ผลงานที่ 1</div>
-                    <h3>ชื่อโปรเจกต์</h3>
-                    <p>รายละเอียดสั้นๆ ของผลงาน</p>
-                </div>
-                <div class="work-card">
-                    <div class="work-image placeholder">ผลงานที่ 2</div>
-                    <h3>ชื่อโปรเจกต์</h3>
-                    <p>รายละเอียดสั้นๆ ของผลงาน</p>
-                </div>
-                <div class="work-card">
-                    <div class="work-image placeholder">ผลงานที่ 3</div>
-                    <h3>ชื่อโปรเจกต์</h3>
-                    <p>รายละเอียดสั้นๆ ของผลงาน</p>
-                </div>
-                <div class="work-card">
-                    <div class="work-image placeholder">ผลงานที่ 4</div>
-                    <h3>ชื่อโปรเจกต์</h3>
-                    <p>รายละเอียดสั้นๆ ของผลงาน</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">ติดต่อ</h2>
-            <div class="contact-content">
-                <p>หากสนใจร่วมงานหรืออยากคุยเกี่ยวกับโปรเจกต์ สามารถติดต่อผ่านช่องทางด้านล่างได้เลย</p>
-                <div class="contact-links">
-                    <a href="mailto:email@example.com" class="btn btn-primary">อีเมล</a>
-                    <a href="#" class="btn btn-outline">GitHub</a>
-                    <a href="#" class="btn btn-outline">LinkedIn</a>
-                </div>
-            </div>
+            <h2 class="reveal">Let's build something<br>great together.</h2>
+            <a href="contact.html" class="btn btn-primary magnetic reveal">Start a Project</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Portfolio. สงวนลิขสิทธิ์.</p>
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="logo">PORTFOLIO</a>
+                    <p>Digital designer & developer</p>
+                </div>
+                <div class="footer-links">
+                    <a href="work.html">Work</a>
+                    <a href="journal.html">Journal</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="magnetic">GitHub</a>
+                    <a href="#" class="magnetic">LinkedIn</a>
+                    <a href="#" class="magnetic">Twitter</a>
+                </div>
+            </div>
+            <p class="footer-copy">&copy; 2026 Portfolio. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
