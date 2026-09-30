@@ -1,0 +1,27 @@
+{
+  "name": "lxzenk-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "LXZENK API — Express + SQLite + JWT",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "seed": "node src/seed.js",
+    "reset": "node -e \"import('node:fs').then(fs=>{['data/lxzenk.db','data/lxzenk.db-wal','data/lxzenk.db-shm'].forEach(f=>{try{fs.unlinkSync(f)}catch(e){}});console.log('db cleared')})\""
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.24.1"
+  },
+  "allowScripts": {
+    "better-sqlite3@11.10.0": true
+  }
+}

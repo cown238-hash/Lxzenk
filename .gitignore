@@ -1,11 +1,28 @@
 # Dependencies
 node_modules/
 
-# Build
+# Build output
 dist/
 build/
+client/dist/
 
-# IDE
+# Environment — never commit real secrets
+.env
+.env.*
+!.env.example
+
+# SQLite database (created on first run)
+server/data/
+*.db
+*.db-wal
+*.db-shm
+
+# Logs
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Editors
 .vscode/
 .idea/
 *.swp
@@ -14,11 +31,4 @@ build/
 # OS
 .DS_Store
 Thumbs.db
-
-# Logs
-*.log
-npm-debug.log*
-
-# Environment
-.env
-.env.local
+desktop.ini
