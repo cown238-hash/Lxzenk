@@ -246,6 +246,24 @@ img {
     color: var(--color-text);
 }
 
+/* 3D Logo Style */
+.logo-3d {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    background: linear-gradient(180deg, #fff 0%, #ccc 40%, #888 60%, #aaa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(0 1px 0 #555) drop-shadow(0 2px 0 #444) drop-shadow(0 3px 0 #333) drop-shadow(0 4px 4px rgba(0,0,0,0.5));
+    transition: filter 0.3s;
+}
+
+.logo-3d:hover {
+    filter: drop-shadow(0 1px 0 #6c5ce7) drop-shadow(0 2px 0 #5b4cdb) drop-shadow(0 3px 0 #4a3db8) drop-shadow(0 4px 8px rgba(108, 92, 231, 0.4));
+}
+
 .nav-links {
     display: flex;
     list-style: none;
