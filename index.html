@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LXZENK — Portfolio</title>
+    <title>LXZENK — Open Source Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navbar -->
@@ -30,20 +30,21 @@
         <div class="container">
             <div class="hero-badge">
                 <span class="dot"></span>
-                Available for work
+                Open Source · Available for work
             </div>
             <h1>Building digital products<br>that <span class="highlight">people love</span></h1>
             <p class="hero-sub">Designer & Developer crafting thoughtful, high-quality experiences for the web. Open source enthusiast.</p>
-            <div class="badges">
-                <span class="badge green">● Open to work</span>
-                <span class="badge blue">◆ React</span>
-                <span class="badge purple">◆ TypeScript</span>
-                <span class="badge orange">◆ Node.js</span>
+
+            <!-- Terminal -->
+            <div class="hero-terminal">
+                <span class="prompt">$</span> <span class="command">npx create-lxzenk@latest</span>
             </div>
-            <div style="margin-top: 24px;">
+
+            <div class="hero-cta">
                 <a href="work.html" class="btn btn-primary">View Work</a>
                 <a href="contact.html" class="btn btn-secondary">Contact</a>
             </div>
+
             <div class="hero-stats">
                 <div class="stat">
                     <div class="stat-number">50+</div>
@@ -61,58 +62,81 @@
         </div>
     </section>
 
-    <!-- Featured Work -->
+    <!-- Features -->
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2><span class="icon">◆</span> Featured Work</h2>
-                <a href="work.html" class="section-link">View all →</a>
+                <h2>What I Do</h2>
+                <p>End-to-end product design and development</p>
             </div>
-            <div class="work-grid" id="featuredGrid"></div>
-        </div>
-    </section>
-
-    <!-- Features / Skills -->
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <div class="section-header">
-                <h2><span class="icon">◆</span> What I Do</h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3><span class="icon">●</span> Design</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Design</h3>
                     <p>UI/UX design that balances aesthetics with usability. From wireframes to polished interfaces that users love.</p>
                 </div>
-                <div class="skill-card">
-                    <h3><span class="icon">●</span> Development</h3>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Development</h3>
                     <p>Clean, performant code. Modern frameworks and best practices for scalable, maintainable products.</p>
                 </div>
-                <div class="skill-card">
-                    <h3><span class="icon">●</span> Open Source</h3>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Open Source</h3>
                     <p>Active contributor to open source projects. Building tools and libraries for the community.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quick Install (Fun section) -->
+    <!-- Featured Work -->
     <section class="section" style="padding-top: 0;">
         <div class="container">
             <div class="section-header">
-                <h2><span class="icon">◆</span> Quick Start</h2>
+                <h2>Featured Work</h2>
+                <p>Selected projects I'm proud of</p>
             </div>
-            <div class="code-block">
-                <div class="code-header">
-                    <span>terminal</span>
-                    <span>bash</span>
+            <div class="work-grid" id="featuredGrid"></div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="section social-proof">
+        <div class="container">
+            <div class="section-header">
+                <h2>What People Say</h2>
+                <p>Testimonials from clients and collaborators</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Working with LXZENK was a fantastic experience. The attention to detail and quality of work exceeded our expectations."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">S</div>
+                        <div>
+                            <div class="testimonial-name">Sarah Chen</div>
+                            <div class="testimonial-role">CEO, TechStart</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="code-content">
-                    <div><span class="comment"># Clone my portfolio</span></div>
-                    <div><span class="command">git clone</span> https://github.com/yourname/lxzenk.git</div>
-                    <div class="mt-4"><span class="comment"># Install dependencies</span></div>
-                    <div><span class="command">cd</span> lxzenk && <span class="command">npm</span> <span class="flag">install</span></div>
-                    <div class="mt-4"><span class="comment"># Start dev server</span></div>
-                    <div><span class="command">npm</span> <span class="flag">run</span> dev</div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Exceptional design sense and technical skills. Delivered on time and the results speak for themselves."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">M</div>
+                        <div>
+                            <div class="testimonial-name">Mike Johnson</div>
+                            <div class="testimonial-role">Product Lead, InnovateCo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"A rare combination of design talent and engineering expertise. Highly recommended for any project."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">P</div>
+                        <div>
+                            <div class="testimonial-name">Pat Smith</div>
+                            <div class="testimonial-role">Founder, DesignLab</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -122,9 +146,10 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-copy">
-                    © 2026 LXZENK. Built with care.
-                </div>
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">L</span>
+                    LXZENK
+                </a>
                 <div class="footer-links">
                     <a href="work.html">Work</a>
                     <a href="journal.html">Journal</a>
@@ -132,6 +157,7 @@
                     <a href="#">GitHub</a>
                 </div>
             </div>
+            <p class="footer-copy">© 2026 LXZENK. Open source · Built in public</p>
         </div>
     </footer>
 
