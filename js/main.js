@@ -1,5 +1,5 @@
 // ============================================
-// Main JavaScript — All interactive features
+// LXZENK — Main JavaScript (Simplified)
 // ============================================
 
 // --------------------------------------------
@@ -9,184 +9,6 @@ const FORMSPRREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
 const NEWSLETTER_ENDPOINT = 'https://formspree.io/f/YOUR_NEWSLETTER_ID';
 
 // --------------------------------------------
-// Settings State
-// --------------------------------------------
-const settings = {
-    curtain: true,
-    smooth: true,
-    reveals: true,
-    cursor: true,
-    magnetic: true
-};
-
-// Load settings from localStorage
-const savedSettings = localStorage.getItem('portfolioSettings');
-if (savedSettings) Object.assign(settings, JSON.parse(savedSettings));
-
-function saveSettings() {
-    localStorage.setItem('portfolioSettings', JSON.stringify(settings));
-}
-
-// --------------------------------------------
-// Page Curtain
-// --------------------------------------------
-function playCurtain() {
-    if (!settings.curtain) return;
-    const curtain = document.getElementById('curtain');
-    if (!curtain) return;
-    curtain.classList.add('active');
-    setTimeout(() => curtain.classList.remove('active'), 1200);
-}
-
-// --------------------------------------------
-// Custom Cursor
-// --------------------------------------------
-function initCursor() {
-    const cursor = document.getElementById('cursor');
-    const dot = document.getElementById('cursorDot');
-    if (!cursor || !dot) return;
-
-    if (!settings.cursor) {
-        cursor.style.display = 'none';
-        dot.style.display = 'none';
-        return;
-    }
-
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        dot.style.left = mouseX + 'px';
-        dot.style.top = mouseY + 'px';
-    });
-
-    function animate() {
-        cursorX += (mouseX - cursorX) * 0.15;
-        cursorY += (mouseY - cursorY) * 0.15;
-        cursor.style.left = cursorX + 'px';
-        cursor.style.top = cursorY + 'px';
-        requestAnimationFrame(animate);
-    }
-    animate();
-
-    // Hover effects
-    document.querySelectorAll('a, button, .work-card, .filter-btn').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
-}
-
-// --------------------------------------------
-// Magnetic Buttons
-// --------------------------------------------
-function initMagnetic() {
-    if (!settings.magnetic) return;
-    document.querySelectorAll('.magnetic').forEach(el => {
-        el.addEventListener('mousemove', (e) => {
-            const rect = el.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-        });
-        el.addEventListener('mouseleave', () => {
-            el.style.transform = 'translate(0, 0)';
-        });
-    });
-}
-
-// --------------------------------------------
-// Text Reveals
-// --------------------------------------------
-function initReveals() {
-    if (!settings.reveals) {
-        document.querySelectorAll('.reveal').forEach(el => {
-            el.classList.add('visible');
-        });
-        return;
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => entry.target.classList.add('visible'), i * 100);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-}
-
-// --------------------------------------------
-// Smooth Scroll
-// --------------------------------------------
-function initSmoothScroll() {
-    if (!settings.smooth) return;
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href === '#') { e.preventDefault(); return; }
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-}
-
-// --------------------------------------------
-// Settings Panel
-// --------------------------------------------
-function initSettings() {
-    const toggle = document.getElementById('settingsToggle');
-    const panel = document.getElementById('settingsPanel');
-    if (!toggle || !panel) return;
-
-    toggle.addEventListener('click', () => panel.classList.toggle('open'));
-
-    const toggles = ['Curtain', 'Smooth', 'Reveals', 'Cursor', 'Magnetic'];
-    toggles.forEach(name => {
-        const input = document.getElementById('toggle' + name);
-        if (input) {
-            input.checked = settings[name.toLowerCase()];
-            input.addEventListener('change', () => {
-                settings[name.toLowerCase()] = input.checked;
-                saveSettings();
-                if (name === 'Cursor') initCursor();
-                if (name === 'Magnetic') initMagnetic();
-            });
-        }
-    });
-}
-
-// --------------------------------------------
-// Navbar Scroll Effect
-// --------------------------------------------
-function initNavbar() {
-    const navbar = document.getElementById('navbar');
-    if (!navbar) return;
-    window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
-}
-
-// --------------------------------------------
-// Mobile Menu
-// --------------------------------------------
-function initMobileMenu() {
-    const toggle = document.getElementById('menuToggle');
-    const nav = document.querySelector('.nav-links');
-    if (!toggle || !nav) return;
-    toggle.addEventListener('click', () => {
-        nav.classList.toggle('open');
-        toggle.classList.toggle('active');
-    });
-}
-
-// --------------------------------------------
 // Render Work Grid
 // --------------------------------------------
 function renderWorkGrid(containerId, items, isLarge = false) {
@@ -194,20 +16,17 @@ function renderWorkGrid(containerId, items, isLarge = false) {
     if (!container) return;
 
     container.innerHTML = items.map(item => `
-        <a href="case-study.html?id=${item.id}" class="work-card ${isLarge ? 'large' : ''}">
+        <a href="case-study.html?id=${item.id}" class="work-card">
             <div class="work-image">
                 <img src="${item.image}" alt="${item.title}" loading="lazy">
-                <div class="work-overlay">
-                    <span>View Case Study</span>
-                </div>
             </div>
             <div class="work-info">
-                <div class="work-meta">
-                    <span class="work-category">${item.category}</span>
-                    <span class="work-year">${item.year}</span>
-                </div>
                 <h3>${item.title}</h3>
                 <p>${item.statement}</p>
+                <div class="work-meta">
+                    <span class="work-tag language">${item.category}</span>
+                    ${item.tags.map(t => `<span class="work-tag">${t}</span>`).join('')}
+                </div>
             </div>
         </a>
     `).join('');
@@ -261,42 +80,44 @@ function renderCaseStudy() {
         return;
     }
 
-    document.title = `${project.title} | Portfolio`;
+    document.title = `${project.title} — LXZENK`;
 
     container.innerHTML = `
-        <header class="case-header">
-            <div class="case-meta">
-                <span class="case-category">${project.category}</span>
-                <span class="case-year">${project.year}</span>
+        <div style="margin-bottom: 32px;">
+            <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                <span class="badge blue">${project.category}</span>
+                <span class="badge">${project.year}</span>
             </div>
-            <h1>${project.title}</h1>
-            <p class="case-statement">${project.statement}</p>
-            <div class="case-tags">
-                ${project.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+            <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 12px;">${project.title}</h1>
+            <p style="color: var(--text-secondary); font-size: 1.1rem;">${project.statement}</p>
+            <div class="badges" style="margin-top: 16px;">
+                ${project.tags.map(t => `<span class="badge purple">${t}</span>`).join('')}
             </div>
-        </header>
+        </div>
 
-        <div class="case-gallery">
-            ${project.gallery.map((img, i) => `
-                <div class="case-image ${i === 0 ? 'full' : ''}">
-                    <img src="${img}" alt="${project.title} - ${i + 1}" loading="lazy">
-                </div>
+        <div style="margin-bottom: 32px;">
+            ${project.gallery.map(img => `
+                <img src="${img}" alt="${project.title}" style="width: 100%; border-radius: var(--radius); margin-bottom: 16px; border: 1px solid var(--border);">
             `).join('')}
         </div>
 
-        <div class="case-body">
-            <div class="case-section">
-                <h2>Challenge</h2>
-                <p>${project.challenge}</p>
+        <div style="display: flex; flex-direction: column; gap: 32px;">
+            <div>
+                <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; color: var(--accent);">Challenge</h3>
+                <p style="color: var(--text-secondary); line-height: 1.8;">${project.challenge}</p>
             </div>
-            <div class="case-section">
-                <h2>Approach</h2>
-                <p>${project.approach}</p>
+            <div>
+                <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; color: var(--accent);">Approach</h3>
+                <p style="color: var(--text-secondary); line-height: 1.8;">${project.approach}</p>
             </div>
-            <div class="case-section">
-                <h2>Results</h2>
-                <ul class="results-list">
-                    ${project.results.map(r => `<li>${r}</li>`).join('')}
+            <div>
+                <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; color: var(--accent);">Results</h3>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+                    ${project.results.map(r => `
+                        <li style="display: flex; align-items: center; gap: 12px; color: var(--text-secondary);">
+                            <span style="color: var(--green);">✓</span> ${r}
+                        </li>
+                    `).join('')}
                 </ul>
             </div>
         </div>
@@ -328,13 +149,12 @@ function renderJournal(filter = 'all') {
                 <img src="${article.image}" alt="${article.title}" loading="lazy">
             </div>
             <div class="journal-info">
-                <div class="journal-meta">
-                    <span class="journal-category">${article.category}</span>
-                    <span class="journal-date">${formatDate(article.date)}</span>
-                </div>
                 <h3>${article.title}</h3>
                 <p>${article.excerpt}</p>
-                <span class="read-time">${article.readTime} read</span>
+                <div class="journal-meta">
+                    <span>${formatDate(article.date)}</span>
+                    <span>${article.readTime} read</span>
+                </div>
             </div>
         </a>
     `).join('');
@@ -349,14 +169,14 @@ function renderFeaturedPost() {
 
     const featured = articles[0];
     container.innerHTML = `
-        <a href="article.html?id=${featured.id}" class="featured-post-card">
-            <div class="featured-image">
+        <a href="article.html?id=${featured.id}" class="work-card" style="display: grid; grid-template-columns: 1fr 1fr;">
+            <div class="work-image" style="aspect-ratio: auto;">
                 <img src="${featured.image}" alt="${featured.title}">
             </div>
-            <div class="featured-info">
-                <span class="featured-label">Featured</span>
-                <h3>${featured.title}</h3>
-                <p>${featured.excerpt}</p>
+            <div class="work-info" style="display: flex; flex-direction: column; justify-content: center;">
+                <span class="badge blue" style="align-self: flex-start; margin-bottom: 12px;">Featured</span>
+                <h3 style="font-size: 1.25rem; color: var(--text); margin-bottom: 8px;">${featured.title}</h3>
+                <p style="margin-bottom: 12px;">${featured.excerpt}</p>
                 <div class="journal-meta">
                     <span>${formatDate(featured.date)}</span>
                     <span>${featured.readTime} read</span>
@@ -398,22 +218,20 @@ function renderArticle() {
         return;
     }
 
-    document.title = `${article.title} | Portfolio`;
+    document.title = `${article.title} — LXZENK`;
 
     container.innerHTML = `
-        <header class="article-header">
-            <div class="journal-meta">
-                <span class="journal-category">${article.category}</span>
-                <span class="journal-date">${formatDate(article.date)}</span>
-                <span class="read-time">${article.readTime} read</span>
+        <div style="margin-bottom: 32px;">
+            <div style="display: flex; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; color: var(--text-muted);">
+                <span class="badge blue">${article.category}</span>
+                <span>${formatDate(article.date)}</span>
+                <span>${article.readTime} read</span>
             </div>
-            <h1>${article.title}</h1>
-            <p class="article-excerpt">${article.excerpt}</p>
-        </header>
-        <div class="article-hero-image">
-            <img src="${article.image}" alt="${article.title}">
+            <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 12px; line-height: 1.3;">${article.title}</h1>
+            <p style="color: var(--text-secondary); font-size: 1.1rem;">${article.excerpt}</p>
         </div>
-        <div class="article-body">
+        <img src="${article.image}" alt="${article.title}" style="width: 100%; border-radius: var(--radius); margin-bottom: 32px; border: 1px solid var(--border);">
+        <div style="color: var(--text-secondary); line-height: 1.9; font-size: 1.05rem;">
             ${article.content}
         </div>
     `;
@@ -428,31 +246,12 @@ function renderArticle() {
                     <img src="${a.image}" alt="${a.title}" loading="lazy">
                 </div>
                 <div class="journal-info">
-                    <div class="journal-meta">
-                        <span class="journal-category">${a.category}</span>
-                        <span class="journal-date">${formatDate(a.date)}</span>
-                    </div>
                     <h3>${a.title}</h3>
                     <p>${a.excerpt}</p>
                 </div>
             </a>
         `).join('');
     }
-}
-
-// --------------------------------------------
-// Reading Progress Bar
-// --------------------------------------------
-function initReadingProgress() {
-    const bar = document.getElementById('readingProgress');
-    if (!bar) return;
-
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
-        bar.style.width = progress + '%';
-    });
 }
 
 // --------------------------------------------
@@ -527,38 +326,6 @@ function initNewsletterForm() {
 }
 
 // --------------------------------------------
-// Lazy Video Loading
-// --------------------------------------------
-function initLazyVideos() {
-    const videos = document.querySelectorAll('video[data-src]');
-    if (videos.length === 0) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const video = entry.target;
-                video.src = video.dataset.src;
-                video.load();
-                observer.unobserve(video);
-            }
-        });
-    }, { rootMargin: '200px' });
-
-    videos.forEach(v => observer.observe(v));
-
-    // Pause off-screen videos
-    const pauseObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting && !entry.target.paused) {
-                entry.target.pause();
-            }
-        });
-    });
-
-    videos.forEach(v => pauseObserver.observe(v));
-}
-
-// --------------------------------------------
 // Utility: Format Date
 // --------------------------------------------
 function formatDate(dateStr) {
@@ -570,20 +337,6 @@ function formatDate(dateStr) {
 // Initialize Everything
 // --------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
-    playCurtain();
-    initCursor();
-    initMagnetic();
-    initReveals();
-    initSmoothScroll();
-    initSettings();
-    initNavbar();
-    initMobileMenu();
-    initReadingProgress();
-    initContactForm();
-    initNewsletterForm();
-    initLazyVideos();
-
-    // Page-specific renders
     renderFeaturedWork();
     renderAllWork();
     initWorkFilters();
@@ -592,4 +345,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initJournalFilters();
     renderCaseStudy();
     renderArticle();
+    initContactForm();
+    initNewsletterForm();
 });

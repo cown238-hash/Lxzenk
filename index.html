@@ -3,128 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Portfolio</title>
+    <title>LXZENK — Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Page Curtain -->
-    <div class="curtain" id="curtain"></div>
-
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-dot" id="cursorDot"></div>
-
-    <!-- Settings Panel -->
-    <div class="settings-panel" id="settingsPanel">
-        <button class="settings-toggle" id="settingsToggle" aria-label="Settings">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-            </svg>
-        </button>
-        <div class="settings-content">
-            <h4>Motion Settings</h4>
-            <label class="setting-item">
-                <span>Page Curtain</span>
-                <input type="checkbox" id="toggleCurtain" checked>
-            </label>
-            <label class="setting-item">
-                <span>Smooth Scroll</span>
-                <input type="checkbox" id="toggleSmooth" checked>
-            </label>
-            <label class="setting-item">
-                <span>Text Reveals</span>
-                <input type="checkbox" id="toggleReveals" checked>
-            </label>
-            <label class="setting-item">
-                <span>Custom Cursor</span>
-                <input type="checkbox" id="toggleCursor" checked>
-            </label>
-            <label class="setting-item">
-                <span>Magnetic Buttons</span>
-                <input type="checkbox" id="toggleMagnetic" checked>
-            </label>
-        </div>
-    </div>
-
     <!-- Navbar -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo magnetic logo-3d">LXZENK</a>
+            <a href="index.html" class="logo">
+                <span class="logo-icon">L</span>
+                LXZENK
+            </a>
             <ul class="nav-links">
-                <li><a href="index.html" class="magnetic active">Home</a></li>
-                <li><a href="work.html" class="magnetic">Work</a></li>
-                <li><a href="journal.html" class="magnetic">Journal</a></li>
-                <li><a href="contact.html" class="magnetic">Contact</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="journal.html">Journal</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
-            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <p class="hero-label reveal">Portfolio 2026</p>
-            <h1 class="hero-title">
-                <span class="line reveal">Crafting digital</span>
-                <span class="line reveal">experiences that</span>
-                <span class="line reveal"><em>matter.</em></span>
-            </h1>
-            <p class="hero-sub reveal">Designer & Developer focused on building thoughtful, high-quality digital products.</p>
-            <div class="hero-cta reveal">
-                <a href="work.html" class="btn btn-primary magnetic">View Work</a>
-                <a href="contact.html" class="btn btn-ghost magnetic">Get in Touch</a>
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Available for work
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
+            <h1>Building digital products<br>that <span class="highlight">people love</span></h1>
+            <p class="hero-sub">Designer & Developer crafting thoughtful, high-quality experiences for the web. Open source enthusiast.</p>
+            <div class="badges">
+                <span class="badge green">● Open to work</span>
+                <span class="badge blue">◆ React</span>
+                <span class="badge purple">◆ TypeScript</span>
+                <span class="badge orange">◆ Node.js</span>
+            </div>
+            <div style="margin-top: 24px;">
+                <a href="work.html" class="btn btn-primary">View Work</a>
+                <a href="contact.html" class="btn btn-secondary">Contact</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Exp</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Clients</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Featured Work -->
-    <section class="section featured-work">
+    <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="reveal">Selected Work</h2>
-                <a href="work.html" class="link-arrow magnetic">View all <span>&rarr;</span></a>
+                <h2><span class="icon">◆</span> Featured Work</h2>
+                <a href="work.html" class="section-link">View all →</a>
             </div>
             <div class="work-grid" id="featuredGrid"></div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section class="section services">
+    <!-- Features / Skills -->
+    <section class="section" style="padding-top: 0;">
         <div class="container">
-            <h2 class="reveal">What I Do</h2>
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-icon">&#9998;</div>
-                    <h3>Design</h3>
-                    <p>UI/UX design that balances aesthetics with usability. From wireframes to polished interfaces.</p>
+            <div class="section-header">
+                <h2><span class="icon">◆</span> What I Do</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3><span class="icon">●</span> Design</h3>
+                    <p>UI/UX design that balances aesthetics with usability. From wireframes to polished interfaces that users love.</p>
                 </div>
-                <div class="service-card reveal">
-                    <div class="service-icon">&lt;/&gt;</div>
-                    <h3>Development</h3>
-                    <p>Clean, performant code. Modern frameworks and best practices for scalable products.</p>
+                <div class="skill-card">
+                    <h3><span class="icon">●</span> Development</h3>
+                    <p>Clean, performant code. Modern frameworks and best practices for scalable, maintainable products.</p>
                 </div>
-                <div class="service-card reveal">
-                    <div class="service-icon">&#9654;</div>
-                    <h3>Motion</h3>
-                    <p>Thoughtful animations that enhance the experience and guide user attention.</p>
+                <div class="skill-card">
+                    <h3><span class="icon">●</span> Open Source</h3>
+                    <p>Active contributor to open source projects. Building tools and libraries for the community.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section cta-section">
+    <!-- Quick Install (Fun section) -->
+    <section class="section" style="padding-top: 0;">
         <div class="container">
-            <h2 class="reveal">Let's build something<br>great together.</h2>
-            <a href="contact.html" class="btn btn-primary magnetic reveal">Start a Project</a>
+            <div class="section-header">
+                <h2><span class="icon">◆</span> Quick Start</h2>
+            </div>
+            <div class="code-block">
+                <div class="code-header">
+                    <span>terminal</span>
+                    <span>bash</span>
+                </div>
+                <div class="code-content">
+                    <div><span class="comment"># Clone my portfolio</span></div>
+                    <div><span class="command">git clone</span> https://github.com/yourname/lxzenk.git</div>
+                    <div class="mt-4"><span class="comment"># Install dependencies</span></div>
+                    <div><span class="command">cd</span> lxzenk && <span class="command">npm</span> <span class="flag">install</span></div>
+                    <div class="mt-4"><span class="comment"># Start dev server</span></div>
+                    <div><span class="command">npm</span> <span class="flag">run</span> dev</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -132,22 +122,16 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div>
-                    <a href="index.html" class="logo logo-3d">LXZENK</a>
-                    <p>Digital designer & developer</p>
+                <div class="footer-copy">
+                    © 2026 LXZENK. Built with care.
                 </div>
                 <div class="footer-links">
                     <a href="work.html">Work</a>
                     <a href="journal.html">Journal</a>
                     <a href="contact.html">Contact</a>
-                </div>
-                <div class="footer-social">
-                    <a href="#" class="magnetic">GitHub</a>
-                    <a href="#" class="magnetic">LinkedIn</a>
-                    <a href="#" class="magnetic">Twitter</a>
+                    <a href="#">GitHub</a>
                 </div>
             </div>
-            <p class="footer-copy">&copy; 2026 Portfolio. All rights reserved.</p>
         </div>
     </footer>
 
