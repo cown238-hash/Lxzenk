@@ -1,34 +1,24 @@
 # Dependencies
 node_modules/
 
-# Build output
-dist/
-build/
-client/dist/
+# Next.js build output
+.next/
+out/
 
 # Environment — never commit real secrets
 .env
 .env.*
 !.env.example
 
-# SQLite database (created on first run)
-server/data/
-*.db
-*.db-wal
-*.db-shm
-
 # Logs
 *.log
 npm-debug.log*
-yarn-error.log*
 
-# Editors
+# Editors / OS
 .vscode/
 .idea/
-*.swp
-*.swo
-
-# OS
 .DS_Store
 Thumbs.db
-desktop.ini
+
+# Local Netlify folder
+.netlify
